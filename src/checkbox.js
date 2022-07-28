@@ -1,11 +1,27 @@
-import { fromEvent, interval } from 'rxjs';
-import { scan, flatMapLatest, tap, map, takeUntil, switchMap } from 'rxjs/operators';
-import { counterStream$ } from './counter';
-import { fibonacciStream$ } from './fibonacciCounter';
+import { filter, fromEvent, map, merge, startWith, withLatestFrom } from 'rxjs';
+import { stream$ as counter$ } from './counter';
+import { stream$ as fibonaciCounter$ } from './fibonacciCounter';
 
-fromEvent(document.getElementById('checkbox'), 'change')
+const change$ = fromEvent(document.getElementById('checkbox'), 'change')
   .pipe(
-    map(e => e.target.checked),
-    switchMap((checked) =>  checked ? counterStream$ : fibonacciStream$),
+    map(event => event.target.checked),
+    startWith(false)
   )
-  .subscribe(console.log)
+
+const counterWithChange$ = counter$.pipe(
+  withLatestFrom(change$),
+  filter(([_, checked]) => !checked),
+  map(([value]) => value)
+)
+
+const fibWithChange$ = fibonaciCounter$.pipe(
+  withLatestFrom(change$),
+  filter(([_, checked]) => !!checked),
+  map(([value]) => value)
+)
+
+export const stream$ = merge(
+  counterWithChange$,
+  fibWithChange$
+)
+

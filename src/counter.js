@@ -1,14 +1,10 @@
 import { interval } from 'rxjs'
-import { take, tap, filter } from 'rxjs/operators'
+import { take, tap, filter, map } from 'rxjs/operators'
 
-export const counterStream$ = interval(1000)
+export const stream$ = interval(1000)
   .pipe(
     //tap(value => console.log('Tap: ', value)),
     take(15),
-    filter(value => value > 3)
+    filter(value => value > 3),
+    map(value => value + 1)
   )
-
-// counterStream$.subscribe({
-//   next: console.log,
-//   complete: () => console.log('Complete')
-// })
