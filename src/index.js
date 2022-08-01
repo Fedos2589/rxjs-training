@@ -2,7 +2,8 @@
 // import { stream$ } from './fibonacciCounter';
 // import { stream$ } from  './checkbox';
 // import { stream$ } from  './ajax';
-import { stream$ } from  './multiplicationTable';
+// import { stream$ } from  './multiplicationTable';
+import { stream$ } from  './home';
 
 
 export const subscription = stream$.subscribe({
