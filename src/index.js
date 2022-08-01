@@ -5,7 +5,6 @@
 // import { stream$ } from  './multiplicationTable';
 import { stream$ } from  './home';
 
-
 export const subscription = stream$.subscribe({
   next: console.log,
   complete: () => console.log('Complete')
