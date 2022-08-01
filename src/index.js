@@ -4,6 +4,7 @@
 // import { stream$ } from  './ajax';
 // import { stream$ } from  './multiplicationTable';
 import { stream$ } from  './home';
+import './reset';
 
 export const subscription = stream$.subscribe({
   next: console.log,
