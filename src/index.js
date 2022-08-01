@@ -1,6 +1,7 @@
 // import { stream$ } from './counter';
 // import { stream$ } from './fibonacciCounter';
-import { stream$ } from  './checkbox';
+// import { stream$ } from  './checkbox';
+import { stream$ } from  './ajax';
 
 
 export const subscription = stream$.subscribe({
