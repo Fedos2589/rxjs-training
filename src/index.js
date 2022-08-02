@@ -5,7 +5,8 @@
 // import { stream$ } from  './multiplicationTable';
 // import './reset';
 // import { stream$ } from  './home';
-import './typingCounter';
+// import './typingCounter';
+import './translate';
 
 
 // export const subscription = stream$.subscribe({
