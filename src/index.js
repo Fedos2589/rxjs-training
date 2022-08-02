@@ -3,12 +3,14 @@
 // import { stream$ } from  './checkbox';
 // import { stream$ } from  './ajax';
 // import { stream$ } from  './multiplicationTable';
-import { stream$ } from  './home';
-import './reset';
+// import './reset';
+// import { stream$ } from  './home';
+import './typingCounter';
 
-export const subscription = stream$.subscribe({
-  next: console.log,
-  complete: () => console.log('Complete')
-})
 
-document.getElementById('clear').addEventListener('click', () => subscription.unsubscribe())
+// export const subscription = stream$.subscribe({
+//   next: console.log,
+//   complete: () => console.log('Complete')
+// })
+
+// document.getElementById('clear').addEventListener('click', () => subscription.unsubscribe())
